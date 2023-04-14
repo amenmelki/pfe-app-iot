@@ -47,7 +47,7 @@ class _DashboardIotState extends State<DashboardIot>
 
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: 200,
       width: widget.size.width * 0.35,
       decoration: BoxDecoration(
         color: kBgColor,
@@ -129,7 +129,7 @@ class _DashboardIotState extends State<DashboardIot>
                     : Container(),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
             Text(
               widget.title,
               style: TextStyle(

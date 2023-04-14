@@ -7,12 +7,12 @@ import 'Dashboard/dashboard_iot.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'dashboard',
+    initialRoute: 'login',
     routes: {
       'home': (context) => const MyHome(),
       'login': (context) => const MyLogin(),
       'register': (context) => const MyRegister(),
-      'dashboard': (context) => const Dashboard()
+      'dashboard': (context) => const Dashboard(),
     },
   ));
 }

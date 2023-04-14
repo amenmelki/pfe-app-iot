@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pfe_project/acces.dart';
 import 'package:pfe_project/constants.dart';
 import 'package:pfe_project/SensorScreen/sensor_screen.dart';
 
 import 'package:pfe_project/AccountPage.dart';
 import 'package:pfe_project/login.dart';
+import 'package:pfe_project/temperature.dart';
+
+import '../../hum.dart';
 
 class Dashboardbody extends StatefulWidget {
   const Dashboardbody({super.key});
@@ -57,7 +61,7 @@ class _DashboardbodyState extends State<Dashboardbody> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyLogin(),
+                        builder: (context) => const AccesPage(),
                       ),
                     );
                   },
@@ -77,7 +81,7 @@ class _DashboardbodyState extends State<Dashboardbody> {
                   },
 
                   icon:
-                      'assets/image/pir_11.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                      'assets/image/motion1.png', /////////////////////////////erreur ici !!!!!!!!!!!!
                   title: 'MOTION\n Detector',
                 ),
                 ControlButton(
@@ -91,77 +95,15 @@ class _DashboardbodyState extends State<Dashboardbody> {
                   },
 
                   icon:
-                      'assets/image/5115664.png', /////////////////////////////erreur ici !!!!!!!!!!!!
-                  title: 'HUMIDITY\n',
-                ),
-              ],
-            ),
-            SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ControlButton(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AccountPage(),
-                      ),
-                    );
-                  },
-
-                  icon:
-                      'assets/image/temp1.png', /////////////////////////////erreur ici !!!!!!!!!!!!
-                  title: 'Temperature\n',
-                ),
-                ControlButton(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AccountPage(),
-                      ),
-                    );
-                  },
-
-                  icon:
-                      'assets/image/hum11.jpg', /////////////////////////////erreur ici !!!!!!!!!!!!
-                  title: 'HUMIDITY\n',
-                ),
-                ControlButton(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AccountPage(),
-                      ),
-                    );
-                  },
-
-                  icon:
-                      'assets/image/hum11.jpg', /////////////////////////////erreur ici !!!!!!!!!!!!
-                  title: 'HUMIDITY\n',
-                ),
-              ],
-            ),
-            SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ControlButton(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AccountPage(),
-                      ),
-                    );
-                  },
-
-                  icon:
-                      'assets/image/flamme11.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                      'assets/image/fire-station.png', /////////////////////////////erreur ici !!!!!!!!!!!!
                   title: 'FIRE\n',
                 ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 ControlButton(
                   onTap: () {
                     Navigator.push(
@@ -173,7 +115,21 @@ class _DashboardbodyState extends State<Dashboardbody> {
                   },
 
                   icon:
-                      'assets/image/hum11.jpg', /////////////////////////////erreur ici !!!!!!!!!!!!
+                      'assets/image/mapp.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                  title: 'Map\n',
+                ),
+                ControlButton(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HumPage(),
+                      ),
+                    );
+                  },
+
+                  icon:
+                      'assets/image/humd.png', /////////////////////////////erreur ici !!!!!!!!!!!!
                   title: 'HUMIDITY\n',
                 ),
                 ControlButton(
@@ -181,18 +137,66 @@ class _DashboardbodyState extends State<Dashboardbody> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AccountPage(),
+                        builder: (context) => const TemperaturePage(),
                       ),
                     );
                   },
 
                   icon:
-                      'assets/image/hum11.jpg', /////////////////////////////erreur ici !!!!!!!!!!!!
-                  title: 'HUMIDITY\n',
+                      'assets/image/tempp.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                  title: 'Temperature\n',
                 ),
               ],
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ControlButton(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AccountPage(),
+                      ),
+                    );
+                  },
+
+                  icon:
+                      'assets/image/notif.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                  title: 'Notification\n',
+                ),
+                ControlButton(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AccountPage(),
+                      ),
+                    );
+                  },
+
+                  icon:
+                      'assets/image/account_.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                  title: 'Account\n',
+                ),
+                ControlButton(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AccountPage(),
+                      ),
+                    );
+                  },
+
+                  icon:
+                      'assets/image/setting.png', /////////////////////////////erreur ici !!!!!!!!!!!!
+                  title: 'Setting\n',
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
           ],
         ),
       ),
@@ -227,9 +231,9 @@ class _DashboardbodyState extends State<Dashboardbody> {
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 17,
                 fontWeight: FontWeight.w500,
-                color: Colors.black38,
+                color: Colors.black,
               ),
             ),
           ],

@@ -22,23 +22,23 @@ class _MyHomeState extends State<MyHome> {
               title: 'Welcome to Home Page',
               body: 'ici une text ...',
               image: SvgPicture.asset(
-                'assets/1.svg',
+                'assets/image/h1.svg',
               ),
             ),
             PageViewModel(
               title: 'Welcome to Dashbord',
               body: 'ici une text ...',
-              image: SvgPicture.asset('assets/2.svg'),
+              image: SvgPicture.asset('assets/image/h4.svg'),
             ),
             PageViewModel(
               title: 'Welcome to Dashbord',
               body: 'ici une text ...',
-              image: SvgPicture.asset('assets/3.svg'),
+              image: SvgPicture.asset('assets/image/h2.svg'),
             ),
             PageViewModel(
               title: 'Welcome to Dashbord',
               body: 'ici une text ...',
-              image: SvgPicture.asset('assets/4.svg'),
+              image: SvgPicture.asset('assets/image/h3.svg'),
             ),
           ],
           showSkipButton: true,
