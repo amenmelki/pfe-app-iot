@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pfe_project/acces.dart';
 import 'package:pfe_project/constants.dart';
-import 'package:pfe_project/SensorScreen/sensor_screen.dart';
 
 import 'package:pfe_project/AccountPage.dart';
 import 'package:pfe_project/login.dart';
