@@ -19,7 +19,7 @@ class _MyHomeState extends State<MyHome> {
         body: IntroductionScreen(
           pages: [
             PageViewModel(
-              title: 'Welcome to Home Page***',
+              title: 'Welcome to Home Page',
               body: 'ici une text ...',
               image: SvgPicture.asset(
                 'assets/image/h1.svg',
