@@ -52,87 +52,109 @@ class _DashboardIotState extends State<DashboardIot>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 140,
-      width: widget.size.width * 0.35,
-      decoration: BoxDecoration(
-        color: kBgColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            offset: Offset(3, 3),
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            offset: Offset(-3, -3),
-          ),
-        ],
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                widget.icon,
-                AnimatedBuilder(
-                  animation: _animationController,
-                  builder: (animation, child) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (_animationController.isCompleted) {
-                            _animationController.animateTo(20);
-                          } else {
-                            _animationController.animateTo(0);
-                          }
-                          isChecked = !isChecked;
-                        });
-                      },
-                      child: Container(
-                        height: 40,
-                        width: 25,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.grey.shade50,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade200,
-                              blurRadius: 0,
-                              offset: Offset(3, 3),
-                            ),
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 5,
-                              offset: Offset(-3, -3),
-                            ),
-                          ],
-                        ),
-                        child: Align(
-                          alignment: _animation.value,
-                          child: Container(
-                            height: 15,
-                            width: 15,
-                            margin: EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 1),
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              shape: BoxShape.circle,
+    return Center(
+      child: Container(
+        alignment: Alignment.center,
+        height: 200,
+        width: widget.size.width * 0.55,
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 8,
+              offset: Offset(3, 3),
+            ),
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 8,
+              offset: Offset(-3, -3),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  widget.icon,
+                  AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (animation, child) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (_animationController.isCompleted) {
+                              _animationController.animateTo(20);
+                            } else {
+                              _animationController.animateTo(0);
+                            }
+                            isChecked = !isChecked;
+                          });
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 23,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.shade50,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                blurRadius: 0,
+                                offset: Offset(3, 3),
+                              ),
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 5,
+                                offset: Offset(-3, -3),
+                              ),
+                            ],
+                          ),
+                          child: Align(
+                            alignment: _animation.value,
+                            child: Container(
+                              height: 30,
+                              width: 30,
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 2, horizontal: 1),
+                              decoration: BoxDecoration(
+                                color: isChecked
+                                    ? Colors.red.shade300
+                                    : Colors.green,
+                                shape: BoxShape.circle,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Text(
+                widget.title,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: ui.Color.fromARGB(255, 8, 30, 48),
                 ),
-              ],
-            )
-          ],
+              ),
+              Text(
+                isChecked ? widget.statusOff : widget.statusOn,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: isChecked ? Colors.red.shade300 : Colors.green,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

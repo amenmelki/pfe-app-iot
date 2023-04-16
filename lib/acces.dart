@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
+
 import 'package:pfe_project/constants.dart';
 import 'package:pfe_project/dashbord.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class AccesPage extends StatefulWidget {
   const AccesPage({super.key});
@@ -11,67 +14,118 @@ class AccesPage extends StatefulWidget {
 
 class _AccesPageState extends State<AccesPage>
     with SingleTickerProviderStateMixin {
+  bool isChecked = true;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-        child: Column(
-          children: [
-            SizedBox(height: size.height * 0.05),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.menu,
-                  size: 30,
-                  color: kDarkGreyColor,
-                ),
-                Text(
-                  "Home",
-                  style: TextStyle(
-                    color: Color.fromARGB(221, 195, 42, 42),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/image/background.png'), // Replace with your image path
+              fit: BoxFit.cover,
+            ),
+          ),
+          margin: const EdgeInsets.only(top: 16, left: 24, right: 24),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.indigo,
+                    ),
                   ),
+                ],
+              ),
+              SizedBox(height: size.height * 0.03),
+              Text(
+                "RFID SENSOR\n ACCESS PAGE",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: ui.Color.fromARGB(255, 8, 30, 48),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
                 ),
-                Container(
-                  height: size.height * 0.045,
-                  width: size.width * 0.095,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade50,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(31, 240, 239, 239),
-                        blurRadius: 8,
-                        offset: Offset(3, 3),
+              ),
+              SizedBox(height: size.height * 0.02),
+              Text(
+                "Access Control with RFID Technology ",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: ui.Color.fromARGB(255, 8, 30, 48),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
+              SizedBox(height: size.height * 0.05),
+              Expanded(
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  children: [
+                    const SizedBox(height: 5),
+                    CircularPercentIndicator(
+                      radius: 100,
+                      lineWidth: 15,
+                      percent: 1.0,
+                      progressColor: isChecked ? Colors.green : Colors.red,
+                      center: isChecked
+                          ? Image.asset(
+                              'assets/image/open.png',
+                              height: 200,
+                              width: 160,
+                            )
+                          : Image.asset(
+                              'assets/image/close.png',
+                              height: 200,
+                              width: 160,
+                            ),
+                    ),
+                    const SizedBox(height: 30),
+                    Center(
+                      child: Text(
+                        isChecked ? 'OPEN' : 'LOCKED',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: isChecked ? Colors.green : Colors.red,
+                          fontSize: 30,
+                        ),
                       ),
-                    ],
-                  ),
-                  child: Icon(
-                    Icons.notifications_none,
-                    color: kDarkGreyColor,
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            SizedBox(height: size.height * 0.05),
-            Row(
-              children: [
-                DashboardIot(
-                  size: size,
-                  icon: Icon(Icons.home_outlined,
-                      size: 55, color: Colors.grey.shade400),
-                  title: 'ENTREY',
-                  statusOn: 'OPEN',
-                  statusOff: 'LOCKED',
-                ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _roundedButton({
+    required String title,
+    bool isActive = false,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
+      decoration: BoxDecoration(
+        color: isActive ? Colors.indigo : Colors.transparent,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.indigo),
+      ),
+      child: Text(
+        title,
+        style: TextStyle(
+          color: isActive ? Colors.white : Colors.black,
         ),
       ),
     );
