@@ -48,7 +48,7 @@ class _AccesPageState extends State<AccesPage>
               ),
               SizedBox(height: size.height * 0.03),
               Text(
-                "RFID SENSOR\n ACCESS PAGE",
+                "RFID SENSOR ACCESS PAGE",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: ui.Color.fromARGB(255, 8, 30, 48),
@@ -74,20 +74,20 @@ class _AccesPageState extends State<AccesPage>
                   children: [
                     const SizedBox(height: 5),
                     CircularPercentIndicator(
-                      radius: 100,
-                      lineWidth: 15,
+                      radius: 120,
+                      lineWidth: 5,
                       percent: 1.0,
                       progressColor: isChecked ? Colors.green : Colors.red,
                       center: isChecked
                           ? Image.asset(
                               'assets/image/open.png',
-                              height: 200,
-                              width: 160,
+                              height: 300,
+                              width: 250,
                             )
                           : Image.asset(
                               'assets/image/close.png',
-                              height: 200,
-                              width: 160,
+                              height: 300,
+                              width: 250,
                             ),
                     ),
                     const SizedBox(height: 30),
@@ -102,6 +102,28 @@ class _AccesPageState extends State<AccesPage>
                       ),
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 8), // Add spacing between image and text
+              Text(
+                isChecked
+                    ? 'Authorized access.\n Welcome to your safe workplace!'
+                    : 'Security breach detected.\n Please verify your identity !',
+                textAlign: TextAlign.center, // Add your text here
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: size.height * 0.04),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset(
+                  'assets/image/Tunisie-Telecom.jpg', // Replace with your image file path
+                  height: 130,
+                  width: 120,
                 ),
               ),
             ],
